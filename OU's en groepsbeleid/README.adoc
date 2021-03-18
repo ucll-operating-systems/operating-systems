@@ -22,7 +22,7 @@ We onderscheiden 3 soorten Group Policy Objects (GPO's):
 
 == Voordelen van GPO's
 * Efficiënter beheer van IT-omgevingen
-* Password policy enforcement
+* Password policy enforcement (verder in het labo zal je zien dat dit een slecht voorbeeld is en NIET zal werken) 
 * Folder redirection
 
 == Nadelen van GPO's
