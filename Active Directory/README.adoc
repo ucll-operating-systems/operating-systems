@@ -214,7 +214,7 @@ Volgend script gaat na of de groupen correct zijn aangemaakt en de lidmaatschapp
 $BaseDN = 'cn=Users,DC=cosci,DC=be'
 $GROUPs = @(
 "System Administrators",
-"IT-admin",
+"IT-admins",
 "Wifi-users",
 "BadgeReader-users",
 "Employee-administration"
@@ -225,13 +225,13 @@ $RES = $( if (Get-ADGroup -Filter "DistinguishedName -eq 'cn=$_,$Basedn'") {"[PA
 Write-Host "$RES cn=$_,$Basedn exists in the OU"
 }
 Write-Host "Checking if group memberships are correct ..."
-$user= Read-Host "Enter the user who was added to the IT-admin group"
+$user= Read-Host "Enter the user who was added to the IT-admins group (Name)"
 $members = Get-ADGroupMember -Identity Wifi-users | Select -ExpandProperty Name
-$RES= $(If ($members -contains 'IT-admin') {"[PASS]"} else {"[FAIL]"})
+$RES= $(If ($members -contains 'IT-admins') {"[PASS]"} else {"[FAIL]"})
 Write-Host $RES IT-Admins is member of Wifi-users
 $members = Get-ADGroupMember -Identity Wifi-users -Recursive | Select -ExpandProperty Name
 $RES= $(If ($members -contains "$user") {"[PASS]"} else {"[FAIL]"})
-Write-Host $RES $user is member of Wifi-users via IT-Admins 
+Write-Host $RES $user is member of Wifi-users via IT-Admins
 
 
 
